@@ -90,6 +90,6 @@ print("Result: \(result)")
  discover how to support command-line arguments, and take all input that way
     calc 2 4 6 8 10 avg
     6
- 
+ http://pastebin.com/6phtTJB9
  */
 
