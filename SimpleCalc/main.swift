@@ -8,7 +8,7 @@
 
 import Foundation
 
-func factorial(number: Int) -> Int {
+func factorial(number: Double) -> Double {
     if number == 0 {
         return 1;
     } else {
@@ -18,44 +18,49 @@ func factorial(number: Int) -> Int {
 
 print("Enter an expression separated by returns:")
 
-var ints = [Int]()
+var ints = [Double]()
 
 var response = readLine(strippingNewline: true)!
-var num = Int.init(response)
+var num = Double.init(response)
+
+print("first number is \(num!)")
+
 while num != nil {
     ints.append(num!)
     response = readLine(strippingNewline: true)!
-    num = Int.init(response)
+    num = Double.init(response)
 }
 
 let operand = response
+print("operand is " + operand)
 
 var response2:String
-var num2 = 0
+var num2 = 0.0
 if ints.count == 1 && operand != "fact" && operand != "count" && operand != "avg" {
     response2 = readLine(strippingNewline: true)!
-    num2 = Int(UInt.init(response2)!)
+    num2 = Double.init(response2)!
+    print("2nd number is \(num2)")
 }
 
-var result = 0
+var result = 0.0
 switch operand {
 case "+":
     result = ints[0] + num2
 case "-":
-    result = ints[0] + num2
+    result = ints[0] - num2
 case "*":
     result = ints[0] * num2
 case "/":
     result = ints[0] / num2
 case "%":
-    result = ints[0] % num2
+    result = fmod(ints[0], num2)
 case "count":
-    result = ints.count
+    result = Double(ints.count)
 case "avg":
     for stored in ints {
         result += stored
     }
-    result = result / ints.count
+    result = result / Double(ints.count)
 case "fact":
     if ints.count == 1 {
         result = factorial(number: ints[0])
